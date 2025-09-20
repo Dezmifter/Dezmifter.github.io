@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png">
+    <style>
+      :root {
+    --primary-green: #6AB58B;
+    --secondary-green: #DFFFEA;
+    --tertiary-green: #8FB89E;
+    --background-light-green: #EAFDF5;
+    --shadow-green: rgba(0, 128, 0, 0.1);
+}
+
+@font-face {
+    font-family: 'Andantino';
+    src: url('Andantino/Andantino_script.ttf');
+}
+
+@font-face {
+    font-family: 'Nimbis';
+    src: url('Nimbus/');
+}
+
+@font-face {
+    font-family: 'Athena';
+    src: url('Athena/new_athena_unicode.ttf');
+}
+
+.Andantino {
+    font-family: 'Andantino';
+    color: rgb(221, 252, 222);
+    font-size: 55px;
+    text-shadow: rgb(3, 3, 3) 4px 4px 10px;
+}
+
+.Athena {
+    font-family: 'Athena';
+    color: rgb(3, 3, 3);
+    font-size: 26px;
+    text-shadow: rgb(214, 214, 214)0 0 4px;
+    width: 300px;
+}
+
+.Nimbis {
+    font-family: 'Nimbis';
+    color: rgb(3, 3, 3);
+    font-size: 20px;
+    text-shadow: rgb(214, 214, 214)0 0 4px;
+}
+
+.first {
+    position: relative;
+    text-align: center;
+    left: 565px;
+    bottom: 230px;
+}
+
+.second {
+    position: relative;
+    text-align: left;
+    left: 300px;
+}
+
+.third {
+    position: relative;
+    text-align: left;
+    left: 10px;
+}
+
+body {
+    background-color: var(--background-light-green);
+    color: var(--dark-green);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    background-color: var(--primary-green);
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px rgba(1, 1, 1, 0.6);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px var(--shadow-green);
+    margin: 1rem auto;
+    position: relative;
+    left: -470px;
+    top: 90px;
+    box-shadow: 0 0 8px rgba(1,1,1,0.6);
+}
+
+.video-frame {
+    margin: 3rem 0;
+    position: relative;
+    padding-bottom: 33.25%;
+}
+
+.video-frame video {
+    position: absolute;
+    top: -175%;
+    left: 75%;
+    transform: translateX(-50%);
+    width: 23%;
+    height: 120%;
+    border: 1px solid var(--shadow-green);
+    background: linear-gradient(to bottom,
+            rgb(204, 255, 204) 0%,
+            rgb(204, 255, 204) 20%,
+            rgb(167, 255, 171) 80%,
+            rgb(167, 255, 171) 100%);
+    border-radius: 16px;
+    padding: 4px;
+    box-shadow: 2px 2px 8px rgba(1, 1, 1, 0.6);
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: -38rem 0 0 0;
+}
+
+.social-buttons a {
+    color: var(--primary-green);
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-buttons svg {
+    fill: var(--primary-green);
+    width: 30px;
+    height: 30px;
+    transition: fill 0.3s ease;
+}
+
+.social-buttons a:hover svg {
+    fill: var(--tertiary-green);
+}
+
+.online-reg {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0 0 0;
+}
+
+.online-reg a {
+    padding: 10px 20px;
+    font-size: 2rem;
+    height: 30px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #cdffd5;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: ease-in-out 0.5s;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.online-reg a:hover {
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: #9ff8ad;
+}
+
+.reviews-container {
+    margin: 30px 0;
+    position: relative;
+    width: 250px;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom,
+            rgb(204, 255, 204) 0%,
+            rgb(204, 255, 204) 20%,
+            rgb(167, 255, 171) 80%,
+            rgb(167, 255, 171) 100%);
+
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.review-card {
+    max-width: 110%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 55%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.active-review {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    left: 50%;
+    block-size: 23px;
+    inline-size: max-content;
+    transform: translateX(-50%);
+    margin-bottom: -30px;
+}
+
+.pagination button {
+    cursor: pointer;
+    margin: 0 5px;
+    color: white;
+    background-color: green;
+    border: none;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.pagination button.active-page {
+    background-color: darkgreen;
+}
+
+.local-signature{
+ margin:none;
+ width:300px;
+ height:36px;
+     float: right;
+    top: -10px;
+    right: -48px;
+    position: relative;
+    text-align: right;
+}
+.local-signature p{
+    margin:0;
+    color:var(--primary-green);
+    opacity:0.4;
+    padding-bottom:40px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .first, .second, .third {
+        left: 0 !important;
+        right: 0 !important;
+        text-align: center;
+        top: 0px;
+    }
+
+    .first{
+        width:auto;
+    }
+    .Athena{
+        font-family: 'Nimbis';
+    color: rgb(3, 3, 3);
+    font-size: 25px;
+    text-shadow: rgb(214, 214, 214)0 0 4px;
+    }
+    .Andantino{
+        font-size:16px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        left: 0;
+        top: 10px;
+        margin-top: 1rem;
+    }
+
+    .video-frame {
+        margin: 1rem 0;
+        padding:0;
+    }
+
+    .video-frame video {
+        width: 80%;
+        height: 250%;
+        top: 0;
+        left: 0;
+        transform: none;
+        position: relative;
+    }
+
+    .social-buttons {
+        margin: 1rem 0;
+        height:auto;
+        width:auto;
+    }
+
+    .online-reg {
+        margin: 1rem 0;
+    }
+
+    .reviews-container {
+        position:center;
+        width: auto;
+        height: 460px;
+      max-width:275px;
+      max-height:510px;
+    }
+
+    .review-card{
+        margin: 0 27px 0 0;
+    }
+
+    .active-review {
+      max-width:275px;
+      max-height:470px;
+    }
+
+    .pagination button {
+        padding:5px;
+        margin: 0 4px;
+    }
+
+    .pagination{
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    block-size: 23px;
+    inline-size: max-content;
+    transform: translateX(-50%);
+            margin: 10px 0 0 0;
+    }
+
+    .local-signature{
+        visibility:hidden;
+        right:0 !important;
+        top:-30px;
+    }
+
+    footer {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1, h2, p {
+        font-size: 1.2em;
+    }
+
+    .local-signature{
+        visibility:hidden;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .review-card {
+        max-width: 100%;
+    }
+
+    .pagination {
+        margin-bottom: 0px;
+    }
+
+    .social-buttons svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .online-reg a {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+    }
+    .local-signature{
+        top:-40px;
+    }
+}
+    </style>
+    <title>Семейный психолог Алёна Викторовна Поспелова</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="Andantino">Семейный психолог Алёна Викторовна Поспелова</h1>
+        </header>
+        <img class="profile-image" src="photo_2025-09-04_14-27-33.jpg" alt="Алёна Викторовна Поспелова">
+        <section class="intro">
+            <h2 class="Athena first">Давайте знакомиться!</h2>
+            <p class="Nimbis first second">● Я семейный психолог, сертифицированный арт-терапевт, AQ-коуч, специалист по отношениям в
+                <br>
+                паре, семье, с родителями, с детьми.<br>
+                ● Эксперт в проектах преображения "Новая улыбка ",<br>
+                 "Выглядеть на 10 лет моложе, от желания до цели'. <br>
+                <br>
+                ● Больше 20 лет работаю с детьми и родителями, мама двоих детей.<br>
+                29 лет замужем и мы с мужем выстроили счастливые отношения на практике.<br>
+                ● Провожу более 500 консультаций в год.<br>
+                ● 7 лет была заместителем директора школы, где функция психолога была моя.<br>
+                ● 6 лет принимаю в кабинете в г.Тюмени и онлайн.<br>
+                <br>
+                </p>
+                <p class="Nimbis first second third">
+                Постоянно учусь, внедряю новые современные методы и технологии.<br>
+                <br>
+                ● За годы работы помогла многим людям:<br><br>
+                - Решить проблемы в отношениях с собой и другими.<br>
+                - Найти общий язык с ребенком/подростком.<br>
+                - Укрепить отношения в паре и в семье.<br>
+                - Пережить и мягко с профессиональной поддержкой пройти семейные кризисы.<br>
+                <br>
+                ● Социальные сети:<br>
+                <br>
+                <a href="https://t.me/mampsiholog">Тг-канал МАМА-ПСИХОЛОГ</a> с полезными упражнениями для родителей,<br>
+                желающих воспитывать детей без крика и<br>
+                чувства вины.<br>
+                <br>
+                В нем же с удовольствием делюсь рекомендациями по<br>
+                выстраиванию гармоничных отношений в паре и даю<br>
+                кейсы-разборы сложных ситуаций.<br>
+                 Всё это абсолютно бесплатно! Присоединяйтесь!
+            </p>
+        </section>
+
+        <section class="video-frame">
+                <video controls width="640" height="360">
+                       <source src="Video.mp4" type="video/mp4">
+                      <p>Ваш браузер не поддерживает тег <video>.</p>
+                </video>
+        </section>
+
+        <section class="social-buttons">
+            <a href="https://t.me/m/L-BphnnpMzky" title="Личный сообщения Telegram" target="_blank">
+                <svg width="1200px" height="1200px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="14" fill="url(#paint0_linear_87_7225)" />
+                    <path
+                        d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z"
+                        fill="white" />
+                    <defs>
+                        <linearGradient id="paint0_linear_87_7225" x1="16" y1="2" x2="16" y2="30"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#37BBFE" />
+                            <stop offset="1" stop-color="#007DBB" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+            <a href="https://wa.me/+79129291053" title="Личный сообщения WhatsApp" target="_blank">
+                <svg width="1200px" height="1200px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
+                        fill="#BFC8D0" />
+                    <path
+                        d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
+                        fill="url(#paint0_linear_87_7264)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z"
+                        fill="white" />
+                    <path
+                        d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z"
+                        fill="white" />
+                    <defs>
+                        <linearGradient id="paint0_linear_87_7264" x1="26.5" y1="7" x2="4" y2="28"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#5BD066" />
+                            <stop offset="1" stop-color="#27B43E" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+            <a href="https://vk.com/psihologsemie" title="Канал Вконтакте" target="_blank">
+                <svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="512" cy="512" r="512" style="fill:#2787f5" />
+                    <path
+                        d="M585.83 271.5H438.17c-134.76 0-166.67 31.91-166.67 166.67v147.66c0 134.76 31.91 166.67 166.67 166.67h147.66c134.76 0 166.67-31.91 166.67-166.67V438.17c0-134.76-32.25-166.67-166.67-166.67zm74 343.18h-35c-13.24 0-17.31-10.52-41.07-34.62-20.71-20-29.87-22.74-35-22.74-7.13 0-9.17 2-9.17 11.88v31.57c0 8.49-2.72 13.58-25.12 13.58-37 0-78.07-22.4-106.93-64.16-43.45-61.1-55.33-106.93-55.33-116.43 0-5.09 2-9.84 11.88-9.84h35c8.83 0 12.22 4.07 15.61 13.58 17.31 49.9 46.17 93.69 58 93.69 4.41 0 6.45-2 6.45-13.24v-51.6c-1.36-23.76-13.92-25.8-13.92-34.28 0-4.07 3.39-8.15 8.83-8.15h55c7.47 0 10.18 4.07 10.18 12.9v69.58c0 7.47 3.39 10.18 5.43 10.18 4.41 0 8.15-2.72 16.29-10.86 25.12-28.17 43.11-71.62 43.11-71.62 2.38-5.09 6.45-9.84 15.28-9.84h35c10.52 0 12.9 5.43 10.52 12.9-4.41 20.37-47.18 80.79-47.18 80.79-3.73 6.11-5.09 8.83 0 15.61 3.73 5.09 16 15.61 24.1 25.12 14.94 17 26.48 31.23 29.53 41.07 3.45 9.84-1.65 14.93-11.49 14.93z"
+                        style="fill:#fff" />
+                </svg>
+            </a>
+        </section>
+        <section class="online-reg">
+            <a href="https://beauty.dikidi.net/#widget=193453" title="Онлайн запись на сеанс" target="_blank">Онлайн
+                запись</a>
+        </section>
+
+        <div class="reviews-container">
+
+            <img src="photo_2025-09-07_13-21-23.jpg" data-index="0" alt="Отзыв 1" class="review-card active-review" />
+            <img src="photo_2025-09-07_13-22-06.jpg" data-index="1" alt="Отзыв 2" class="review-card" />
+            <img src="photo_2025-09-05_12-08-18.jpg" data-index="2" alt="Отзыв 3" class="review-card" />
+            <img src="photo_2025-09-07_13-28-19.jpg" data-index="3" alt="Отзыв 4" class="review-card" />
+            <img src="photo_2025-09-07_13-27-44.jpg" data-index="4" alt="Отзыв 5" class="review-card" />
+            <img src="photo_2025-09-07_13-27-58.jpg" data-index="5" alt="Отзыв 6" class="review-card" />
+            <img src="photo_2025-09-07_13-28-11.jpg" data-index="6" alt="Отзыв 7" class="review-card" />
+            <img src="photo_2025-09-07_13-28-57.jpg" data-index="7" alt="Отзыв 8" class="review-card" />
+            <img src="photo_2025-09-07_13-29-12.jpg" data-index="8" alt="Отзыв 9" class="review-card" />
+            <img src="photo_2025-09-07_13-29-14.jpg" data-index="9" alt="Отзыв 10" class="review-card" />
+            <img src="photo_2025-09-07_13-16-15.jpg" data-index="10"  alt="Отзыв 11" class="review-card" />
+            <img src="photo_2025-09-07_13-29-09.jpg" data-index="11" alt="Отзыв 12" class="review-card" />
+            <img src="photo_2025-09-07_13-16-18.jpg" data-index="12" alt="Отзыв 13" class="review-card" />
+            <img src="photo_2025-09-07_13-28-25.jpg" data-index="13" alt="Отзыв 14" class="review-card" />
+            <img src="photo_2025-09-07_13-28-41.jpg" data-index="14" alt="Отзыв 15" class="review-card" />
+
+            <div class="pagination">
+                <button onclick="showReview(1)" data-index="0" class="active-page"></button>
+                <button onclick="showReview(2)" data-index="1"></button>
+                <button onclick="showReview(3)" data-index="2"></button>
+                <button onclick="showReview(4)" data-index="3"></button>
+                <button onclick="showReview(5)" data-index="4"></button>
+                <button onclick="showReview(6)" data-index="5"></button>
+                <button onclick="showReview(7)" data-index="6"></button>
+                <button onclick="showReview(8)" data-index="7"></button>
+                <button onclick="showReview(9)" data-index="8"></button>
+                <button onclick="showReview(10)" data-index="9"></button>
+                <button onclick="showReview(11)" data-index="10"></button>
+                <button onclick="showReview(12)" data-index="11"></button>
+                <button onclick="showReview(13)" data-index="12"></button>
+                <button onclick="showReview(14)" data-index="13"></button>
+                <button onclick="showReview(15)" data-index="14"></button>
+            </div>
+        </div>
+<div class="local-signature">
+    <p>Создал: Жураковский Александр<br>
+    Telegram: @ZhurakovskiiAS</p>
+</div>
+    </div>
+    <footer>
+        © 2025 offical site | Все права защищены
+    </footer>
+    <script>
+        function showReview(index) {
+            document.querySelectorAll('.review-card').forEach(card => card.classList.remove('active-review'));
+
+            const reviewImage = document.querySelector(`.review-card:nth-of-type(${index})`);
+            if (reviewImage) {
+                reviewImage.classList.add('active-review');
+            }
+
+            document.querySelectorAll('.pagination button').forEach(btn => btn.classList.remove('active-page'));
+            document.querySelector(`.pagination button:nth-child(${index})`).classList.add('active-page');
+        }
+
+const reviewsContainer = document.querySelector('.reviews-container');
+
+const reviewCards = Array.from(document.querySelectorAll('.review-card'));
+const paginationButtons = Array.from(document.querySelectorAll('.pagination button'));
+
+let currentIndex = 0;
+
+setActiveReview(currentIndex);
+
+function setActiveReview(newIndex) {
+    reviewCards.forEach(card => card.classList.remove('active-review'));
+    reviewCards.find(card => card.dataset.index == newIndex)?.classList.add('active-review');
+
+    paginationButtons.forEach(btn => btn.classList.remove('active-page'));
+    paginationButtons.find(btn => btn.dataset.index == newIndex)?.classList.add('active-page');
+
+    currentIndex = newIndex;
+}
+
+paginationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const newIndex = parseInt(button.dataset.index);
+        setActiveReview(newIndex);
+    });
+});
+
+let isDragging = false;
+let startX = null;
+let swipeInProgress = false;
+
+reviewsContainer.addEventListener('touchstart', handleTouchStart);
+reviewsContainer.addEventListener('touchmove', handleTouchMove);
+reviewsContainer.addEventListener('touchend', handleTouchEnd);
+
+function handleTouchStart(e) {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    swipeInProgress = false;
+}
+
+function handleTouchMove(e) {
+    if (!isDragging || swipeInProgress) return;
+
+    const x = e.touches[0].clientX;
+    const diff = startX - x;
+
+    if (Math.abs(diff) > 10) {
+        let newIndex = currentIndex;
+        if (diff > 0 && currentIndex < reviewCards.length - 1) {
+            newIndex++;
+        } else if (diff < 0 && currentIndex > 0) {
+            newIndex--;
+        }
+
+        setActiveReview(newIndex);
+        swipeInProgress = true;
+    }
+}
+
+function handleTouchEnd() {
+    isDragging = false;
+    startX = null;
+    swipeInProgress = false;
+}
+    </script>
+
+</body>
+
+</html>
